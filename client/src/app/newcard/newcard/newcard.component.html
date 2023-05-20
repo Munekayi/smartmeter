@@ -1,0 +1,27 @@
+<div class="card-form">
+    <h3>Add Card</h3>
+    <form #newCard="ngForm" (ngSubmit)="addCard(newCard)">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" [(ngModel)]="email" name="email" required>
+          </div>
+        <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input type="text" id="cardNumber" [(ngModel)]="cardNumber" name="cardNumber" required>
+      </div>
+      <div class="form-group">
+        <label for="cardHolderName">Card Holder Name</label>
+        <input type="text" id="cardHolderName" [(ngModel)]="cardHolderName" name="cardHolderName" required>
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration Date</label>
+        <input type="text" id="expirationDate" [(ngModel)]="expirationDate" name="expirationDate" required>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input type="text" id="cvv" [(ngModel)]="cvv" name="cvv" required>
+      </div>
+      <button type="submit">Add Card</button>
+    </form>
+  </div>
+  

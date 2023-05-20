@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Template</title>
+  <link rel="stylesheet" href="./forms.component.css">
+</head>
+<body>
+  <header>
+    <img src="../../assets/ukzn-logo.png" alt="Company Logo">
+    <div class="contact-info">
+      <p>Address: 232 Mazisi Kunene, Durban</p>
+      <p>Phone: +123 456 789</p>
+      <p>Email: stu@ukzn.ac.za</p>
+    </div>
+  </header>
+
+  <main>
+    <h1>water Meter Report</h1>
+    <h2>Expense </h2>
+
+    <section class="user-details">
+      <h3>User Details</h3>
+      <p>Name: John Doe</p>
+      <p>Email: {{email}}</p>
+      <p>Address: 456 Street, City</p>
+    </section>
+
+    <section class="meter-info">
+      <h3>Meter Information</h3>
+      <p>Meter ID: {{meterId}}</p>
+      <p>Type: Water</p>
+      <p>Location: Building A, Floor 5</p>
+    </section>
+
+    <section class="amounts-paid">
+      <h3>Amounts Paid</h3>
+      <table>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Reference Number</th>
+        </tr>
+        <tr>
+          <td>2023-05-01</td>
+          <td>{{processedVoucher.amount}}</td>
+          <td>{{processedVoucher.refno}}</td>
+        </tr>
+ 
+        <!-- Add more rows for each payment -->
+      </table>
+    </section>
+
+    <section class="transaction-history">
+      <h3>Transaction History</h3>
+      <ul>
+        <li>2023-05-01: Payment of {{processedVoucher.amount}} received</li>
+        <li>2023-04-15: Payment of $30.00 received</li>
+        <!-- Add more list items for each transaction -->
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Munekayi Mfuamba. All rights reserved.</p>
+  </footer>
+</body>
+</html>

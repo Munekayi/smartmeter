@@ -1,0 +1,23 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { NewcardComponent } from './newcard.component';
+
+describe('NewcardComponent', () => {
+  let component: NewcardComponent;
+  let fixture: ComponentFixture<NewcardComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ NewcardComponent ]
+    })
+    .compileComponents();
+
+    fixture = TestBed.createComponent(NewcardComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

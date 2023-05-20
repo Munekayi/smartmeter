@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com-->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--<title> Responsive Login and Signup Form </title>-->
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="./sign-up.component.css">
+                
+        <!-- Boxicons CSS -->
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+                        
+    </head>
+    <body>
+        <section class="container forms">
+            <div class="form login">
+                <div class="form-content">
+                    <header>Sign Up</header>
+                    <form #signupForm="ngForm" (ngSubmit)="signupForm.valid && onSubmit(signupForm)" >
+
+                      <div class="field input-field">
+                        <input type="email" #email="ngModel" [(ngModel)]="userService.selectedUser.email"  name="email" placeholder="Email" class="input"
+                        required [pattern] ="emailRegex" [ngClass]="{'invalid-textbox' :signupForm.submitted && !email.valid}">
+                        <div *ngIf="signupForm.submitted && email.errors?.['pattern']">
+                            <label *ngIf="email.errors?.['required']" class="validation-message"> This field is required</label>
+                            <label *ngIf="email.errors?.['pattern']" class="validation-message"> Invalid email address.</label>
+                        </div>
+                    </div>
+
+                    <div class="field input-field">
+                        <input type="password" #password="ngModel" [(ngModel)]="userService.selectedUser.password" name="password" placeholder="Create password" class="password"
+                        minlength="4" required [ngClass]="{'invalid-textbox' :signupForm.submitted && !password.valid }">
+                        <div *ngIf="signupForm.submitted && password.errors?.['minlength']">
+                            <label *ngIf="email.errors?.['required']" class="validation-message"> This field is required</label>
+                            <label  *ngIf="email.errors?.['minlength']" class="validation-message"> Enter atleast 4 characters</label>
+                        </div>
+                    </div>
+
+                    <div class="field button-field">
+                        <input type="submit" value="Sign Up">
+                    </div>
+                    </form>
+
+
+                    <!-- Success message -->
+                    <div *ngIf="showSuccessMessage" class="alert alert-success" role="alert">
+                    Saved Successfully
+                    </div>
+                   
+                    <!-- Error message -->
+                    <div class="alert" *ngIf="serverErrorMessages">
+                    {{serverErrorMessages}}
+                    </div>
+                   
+                    <div class="form-link">
+                      <span>Already have an account? <a href="/login" class="link login-link">Login</a></span>
+                  </div>
+              </div>
+
+            <div class="line"></div>
+
+              <div class="media-options">
+                  <a href="#" class="field facebook">
+                      <i class='bx bxl-facebook facebook-icon'></i>
+                      <span>Login with Facebook</span>
+                  </a>
+              </div>
+
+              <div class="media-options">
+                  <a href="#" class="field google">
+                      <img src="../../../assets/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png" alt="" class="google-img">
+                      <span>Login with Google</span>
+                  </a>
+              </div>
+
+          </div>
+
+        </section>
+
+        <!-- JavaScript -->
+        <!--<script src="js/script.js"></script>-->
+    </body>
+</html>
